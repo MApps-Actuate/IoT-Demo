@@ -1,0 +1,1857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="layoutPreference">auto layout</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">ThemesReportItems3.rptlibrary</property>
+            <property name="namespace">ThemesReportItems3</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <data-mart-data-source name="NewDataMartDataSource" id="35">
+            <property name="datamartURL">Data Objects/SampleFleet</property>
+            <property name="datamartVersion">-1</property>
+            <property name="accessType">latest</property>
+        </data-mart-data-source>
+        <data-mart-data-source name="Fleet" id="2184">
+            <property name="datamartURL">Data Objects/SampleFleet</property>
+            <property name="accessType">latest</property>
+        </data-mart-data-source>
+        <script-data-source name="Scripted Data Source" id="2310"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="New Gauge" id="2311">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">VALUE</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">MAX</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">COLOR</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ID</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">VALUE</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">MAX</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">COLOR</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">MAX</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">COLOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Scripted Data Source</property>
+            <method name="open"><![CDATA[counter=0;]]></method>
+            <method name="fetch"><![CDATA[counter++;
+if (counter <=5) {
+	if (counter == 1) {
+		row["ID"] = "MaintenanceRequired";
+		row["VALUE"] = 3.75 + Math.random()*2;
+		row["MAX"] = 20;
+		if (row["VALUE"] < 5) {
+			row["COLOR"] = "green";
+		}
+		else if (row["VALUE"] > 5 &amp;&amp; row["VALUE"] <=6) {
+			row["COLOR"] = "#EF9911";
+		}
+		else {
+			row["COLOR"] = "red";
+		}
+	return true;
+	}
+	else if (counter == 2) {
+		row["ID"] = "MaintenanceCosts";
+		row["VALUE"] = 90;
+		row["MAX"] = 120;
+		row["COLOR"] = "grey";
+	return true;
+	}
+	if (counter == 3) {
+		row["ID"] = "AverageMPG";
+		row["VALUE"] = 27.5 + Math.random();
+		row["MAX"] = 50;
+		if (row["VALUE"] < 27) {
+			row["COLOR"] = "red";
+		}
+		else if (row["VALUE"] >= 27 &amp;&amp; row["VALUE"] < 28) {
+			row["COLOR"] = "#EF9911";
+		}
+		else {
+			row["COLOR"] = "green";
+		}
+	return true;
+	}
+	if (counter == 4) {
+		row["ID"] = "AverageOil";
+		row["VALUE"] = 63.5 + Math.random();
+		row["MAX"] = 100;
+		if (row["VALUE"] < 63) {
+			row["COLOR"] = "red";
+		}
+		else if (row["VALUE"] >= 63 &amp;&amp; row["VALUE"] < 64) {
+			row["COLOR"] = "#EF9911";
+		}
+		else {
+			row["COLOR"] = "green";
+		}
+	return true;
+	}
+	if (counter == 5) {
+		row["ID"] = "SpeedAlerts";
+		row["VALUE"] = 7.25 + Math.random();
+		row["MAX"] = 10;
+		if (row["VALUE"] >=4) {
+			row["COLOR"] = "red";
+		}
+		else if (row["VALUE"] > 5 &amp;&amp; row["VALUE"] <= 5) {
+			row["COLOR"] = "#EF9911";
+		}
+		else {
+			row["COLOR"] = "green";
+		}
+	return true;
+	}
+}
+else {
+	return false;
+}
+		
+			
+		]]></method>
+        </script-data-set>
+    </data-sets>
+    <property name="linkedDataModels">
+        <data-mart-linked-data-model name="NewDataMartDataSource::Data Model" id="36">
+            <property name="dataSource">NewDataMartDataSource</property>
+            <property name="dataObject">Data Model</property>
+        </data-mart-linked-data-model>
+        <data-mart-linked-data-model name="Data Model" id="2185">
+            <property name="dataSource">Fleet</property>
+            <property name="dataObject">Data Model</property>
+        </data-mart-linked-data-model>
+    </property>
+    <body>
+        <table name="AverageMPG" id="2194">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Make</property>
+                    <text-property name="displayName">Make</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Make"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MakeCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNTDISTINCT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Make"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="linkedDataModel">Data Model</property>
+            <property name="isSummaryTable">true</property>
+            <column id="2221"/>
+            <footer>
+                <row id="2195">
+                    <cell id="2196">
+                        <table name="NewTable3" id="2282">
+                            <property name="dataSet">New Gauge</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ID</property>
+                                    <text-property name="displayName">ID</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">VALUE</property>
+                                    <text-property name="displayName">VALUE</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                    <property name="dataType">float</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">MAX</property>
+                                    <text-property name="displayName">MAX</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["MAX"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">COLOR</property>
+                                    <text-property name="displayName">COLOR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COLOR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <list-property name="filter">
+                                <structure>
+                                    <property name="operator">eq</property>
+                                    <expression name="expr" type="javascript">row["ID"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">"AverageMPG"</value>
+                                    </simple-property-list>
+                                    <property name="updateAggregation">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="2307"/>
+                            <detail>
+                                <row id="2283">
+                                    <cell id="2284">
+                                        <grid name="NewGrid6" id="2131">
+                                            <property name="backgroundColor">white</property>
+                                            <property name="borderBottomColor">#E6E9ED</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#E6E9ED</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#E6E9ED</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#E6E9ED</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="width">100%</property>
+                                            <column id="2132">
+                                                <property name="width">125px</property>
+                                            </column>
+                                            <column id="2133">
+                                                <property name="width">185px</property>
+                                            </column>
+                                            <row id="2134">
+                                                <cell id="2135">
+                                                    <property name="colSpan">2</property>
+                                                    <property name="rowSpan">1</property>
+                                                    <property name="borderBottomColor">#ACB8C4</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <label name="NewLabel27" id="2136">
+                                                        <property name="fontSize">14pt</property>
+                                                        <property name="paddingTop">5pt</property>
+                                                        <property name="paddingLeft">3pt</property>
+                                                        <property name="paddingBottom">5pt</property>
+                                                        <text-property name="text" key="Maintenance Costs">Average MPG</text-property>
+                                                    </label>
+                                                </cell>
+                                            </row>
+                                            <row id="2137">
+                                                <cell id="2138">
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <extended-item extensionName="HTMLControl" name="NewCustom Visualization3" id="2259">
+                                                        <method name="clientOnCreate"><![CDATA[// Read data set 
+cursor = this.getDataCursor();
+
+var config = {
+ 	idColumn : "ID",
+	valueColumn : "VALUE",
+	valueMaxColumn : "MAX",
+	colorColumn : "COLOR"
+};
+
+// set precision here
+// if none, default value
+var nbDec = 1;
+
+
+
+	var rowId = [];
+	var rowValue = [];
+	var rowMax = [];
+	var rowColor = [];
+
+	console.log(cursor);
+
+	while (cursor.hasNext()) {
+		console.log('in fetch');
+		var rowData = cursor.next();
+		rowId.push(rowData[config.idColumn]);
+		rowValue.push(rowData[config.valueColumn]);
+		rowMax.push(rowData[config.valueMaxColumn]);
+		rowColor.push(rowData[config.colorColumn]);
+		console.log ('value ' + rowData[config.valueColumn]);
+	};
+
+	var customViz = this;
+	
+var myGauge = function() {
+
+
+	//debugger;
+	console.log ('in 3rd');
+	var containerId = customViz.getId();
+	myDiv = '<div style="position:relative">';
+	myDiv += '<canvas id="' + rowId[0] + '" class="canvas_gauge" style="width:200px;height:100px;position:absolute;left:-50px"></canvas>';
+	myDiv += '<span id="' + rowId[0] + '-lib" style="width:200px;position:absolute;left:-50px;text-align:center;top:25px;font-size:38px"></span>';
+	myDiv += '</div>';
+	$('#' + containerId).append(myDiv);
+		
+	var opts = {
+  		lines: 1, // The number of lines to draw
+  		angle: 0.2, // The length of each line
+  		lineWidth: 0.1, // The line thickness
+  		pointer: {
+    		length: 0.9, // The radius of the inner circle
+    		strokeWidth: 0.035, // The rotation offset
+		},
+  		limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+  		colorStop: rowColor[0],
+  		strokeColor: '#F0F3F3',   // to see which ones work best for you
+  		generateGradient: true,
+	};
+
+	var CustomTextRenderer = function(el){
+    	this.el = el;
+    	this.render = function(gauge){
+    		//console.log(nbDec);
+    		//   		debugger;
+        	this.el.innerHTML = gauge.displayedValue.toFixed(nbDec);
+    	}
+	}
+	CustomTextRenderer.prototype = new TextRenderer();
+
+	var target = document.getElementById(rowId[0]); // your canvas element
+	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+	gauge.maxValue = rowMax[0],
+	gauge.animationSpeed = 15; // set animation speed (32 is default value)
+	gauge.set(rowValue[0]); // set actual value
+	gauge.setTextField(new CustomTextRenderer(document.getElementById(rowId[0] + "-lib")));
+
+}
+
+head.load(this.getBirtResourceURL('/Applications/IoT Demo/js/gauge.js'), myGauge);
+]]></method>
+                                                        <property name="height">110px</property>
+                                                        <property name="width">100%</property>
+                                                    </extended-item>
+                                                </cell>
+                                                <cell id="2140">
+                                                    <grid name="NewGrid7" id="2141">
+                                                        <property name="height">100px</property>
+                                                        <column id="2142"/>
+                                                        <row id="2143">
+                                                            <property name="verticalAlign">middle</property>
+                                                            <cell id="2144">
+                                                                <label name="NewLabel28" id="2145">
+                                                                    <property name="fontSize">14pt</property>
+                                                                    <property name="paddingTop">5pt</property>
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="paddingBottom">5pt</property>
+                                                                    <text-property name="text">Goal above 28</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                        <row id="2146">
+                                                            <property name="verticalAlign">bottom</property>
+                                                            <property name="height">10%</property>
+                                                            <cell id="2147">
+                                                                <image name="NewImage3" id="2148">
+                                                                    <property name="display">inline</property>
+                                                                    <property name="height">10px</property>
+                                                                    <property name="width">13px</property>
+                                                                    <property name="source">file</property>
+                                                                    <expression name="uri" type="constant">images/arrow up green.png</expression>
+                                                                </image>
+                                                                <text name="NewText7" id="2149">
+                                                                    <property name="style">kpi_green</property>
+                                                                    <property name="color">#1ABB9C</property>
+                                                                    <property name="display">inline</property>
+                                                                    <property name="contentType">html</property>
+                                                                    <text-property name="content"><![CDATA[ 2 ]]></text-property>
+                                                                </text>
+                                                                <label name="NewLabel29" id="2150">
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="display">inline</property>
+                                                                    <text-property name="text" key="Decrease vs last year">Increase vs last year</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                    </grid>
+                                                </cell>
+                                            </row>
+                                        </grid>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <table name="AverageOil" id="2222">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Make</property>
+                    <text-property name="displayName">Make</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Make"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MakeCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNTDISTINCT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Make"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="linkedDataModel">Data Model</property>
+            <property name="isSummaryTable">true</property>
+            <column id="2249"/>
+            <footer>
+                <row id="2223">
+                    <cell id="2224">
+                        <table name="NewTable4" id="2169">
+                            <property name="dataSet">New Gauge</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ID</property>
+                                    <text-property name="displayName">ID</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">VALUE</property>
+                                    <text-property name="displayName">VALUE</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                    <property name="dataType">float</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">MAX</property>
+                                    <text-property name="displayName">MAX</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["MAX"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">COLOR</property>
+                                    <text-property name="displayName">COLOR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COLOR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <list-property name="filter">
+                                <structure>
+                                    <property name="operator">eq</property>
+                                    <expression name="expr" type="javascript">row["ID"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">"AverageOil"</value>
+                                    </simple-property-list>
+                                    <property name="updateAggregation">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="2192"/>
+                            <detail>
+                                <row id="2413">
+                                    <cell id="2414">
+                                        <grid name="NewGrid8" id="2163">
+                                            <property name="backgroundColor">white</property>
+                                            <property name="borderBottomColor">#E6E9ED</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#E6E9ED</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#E6E9ED</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#E6E9ED</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="width">100%</property>
+                                            <column id="2164">
+                                                <property name="width">125px</property>
+                                            </column>
+                                            <column id="2165">
+                                                <property name="width">185px</property>
+                                            </column>
+                                            <row id="2251">
+                                                <cell id="2252">
+                                                    <property name="colSpan">2</property>
+                                                    <property name="rowSpan">1</property>
+                                                    <property name="borderBottomColor">#ACB8C4</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <label name="NewLabel30" id="2253">
+                                                        <property name="fontSize">14pt</property>
+                                                        <property name="paddingTop">5pt</property>
+                                                        <property name="paddingLeft">3pt</property>
+                                                        <property name="paddingBottom">5pt</property>
+                                                        <text-property name="text" key="Maintenance Costs">Average Oil Life</text-property>
+                                                    </label>
+                                                </cell>
+                                            </row>
+                                            <row id="2254">
+                                                <cell id="2255">
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <extended-item extensionName="HTMLControl" name="NewCustom Visualization4" id="2256">
+                                                        <method name="clientOnCreate"><![CDATA[var config = {
+ 	idColumn : "ID",
+	valueColumn : "VALUE",
+	valueMaxColumn : "MAX",
+	colorColumn : "COLOR"
+};
+
+// set precision here
+// if none, default value
+var nbDec = 1;
+
+// Read data set 
+var cursor = this.getDataCursor();
+var rowId = [];
+var rowValue = [];
+var rowMax = [];
+var rowColor = [];
+
+while (cursor.hasNext()) {
+	var rowData = cursor.next();
+	rowId.push(rowData[config.idColumn]);
+	rowValue.push(rowData[config.valueColumn]);
+	rowMax.push(rowData[config.valueMaxColumn]);
+	rowColor.push(rowData[config.colorColumn]);
+};
+
+var customViz = this;
+	
+var myGauge = function() {
+	//debugger;
+	console.log ('in 3rd');
+	var containerId = customViz.getId();
+	myDiv = '<div style="position:relative">';
+	myDiv += '<canvas id="' + rowId[0] + '" class="canvas_gauge" style="width:200px;height:100px;position:absolute;left:-50px"></canvas>';
+	myDiv += '<span id="' + rowId[0] + '-lib" style="width:200px;position:absolute;left:-50px;text-align:center;top:25px;font-size:40px"></span>';
+	myDiv += '</div>';
+	$('#' + containerId).append(myDiv);
+		
+	var opts = {
+  		lines: 1, // The number of lines to draw
+  		angle: 0.2, // The length of each line
+  		lineWidth: 0.1, // The line thickness
+  		pointer: {
+    		length: 0.9, // The radius of the inner circle
+    		strokeWidth: 0.035, // The rotation offset
+		},
+  		limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+  		colorStop: rowColor[0],
+  		strokeColor: '#F0F3F3',   // to see which ones work best for you
+  		generateGradient: true,
+	};
+
+	var CustomTextRenderer = function(el){
+    	this.el = el;
+    	this.render = function(gauge){
+    		//console.log(nbDec);
+    		//   		debugger;
+        	this.el.innerHTML = gauge.displayedValue.toFixed(nbDec);
+    	}
+	}
+	CustomTextRenderer.prototype = new TextRenderer();
+
+	var target = document.getElementById(rowId[0]); // your canvas element
+	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+	gauge.maxValue = rowMax[0],
+	gauge.animationSpeed = 15; // set animation speed (32 is default value)
+	gauge.set(rowValue[0]); // set actual value
+	gauge.setTextField(new CustomTextRenderer(document.getElementById(rowId[0] + "-lib")));
+
+}
+
+head.load(this.getBirtResourceURL('/Applications/IoT Demo/js/gauge.js'), myGauge);
+]]></method>
+                                                        <property name="height">100px</property>
+                                                        <property name="width">100%</property>
+                                                    </extended-item>
+                                                </cell>
+                                                <cell id="2172">
+                                                    <grid name="NewGrid9" id="2173">
+                                                        <property name="height">100px</property>
+                                                        <column id="2174"/>
+                                                        <row id="2175">
+                                                            <property name="verticalAlign">middle</property>
+                                                            <cell id="2176">
+                                                                <label name="NewLabel31" id="2177">
+                                                                    <property name="fontSize">14pt</property>
+                                                                    <property name="paddingTop">5pt</property>
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="paddingBottom">5pt</property>
+                                                                    <text-property name="text">Goal above 64</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                        <row id="2178">
+                                                            <property name="verticalAlign">bottom</property>
+                                                            <property name="height">10%</property>
+                                                            <cell id="2179">
+                                                                <image name="NewImage4" id="2180">
+                                                                    <property name="display">inline</property>
+                                                                    <property name="height">10px</property>
+                                                                    <property name="width">13px</property>
+                                                                    <property name="source">file</property>
+                                                                    <expression name="uri" type="constant">images/arrow up green.png</expression>
+                                                                </image>
+                                                                <text name="NewText8" id="2181">
+                                                                    <property name="style">kpi_green</property>
+                                                                    <property name="color">#1ABB9C</property>
+                                                                    <property name="display">inline</property>
+                                                                    <property name="contentType">html</property>
+                                                                    <text-property name="content"><![CDATA[ 2 ]]></text-property>
+                                                                </text>
+                                                                <label name="NewLabel32" id="2182">
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="display">inline</property>
+                                                                    <text-property name="text" key="Decrease vs last year">Increase vs last year</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                    </grid>
+                                                </cell>
+                                            </row>
+                                        </grid>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <table name="MaintenanceCosts" id="2337">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Make</property>
+                    <text-property name="displayName">Make</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Make"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MakeCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNTDISTINCT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Make"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="linkedDataModel">Data Model</property>
+            <property name="isSummaryTable">true</property>
+            <column id="2340"/>
+            <footer>
+                <row id="2338">
+                    <cell id="2339">
+                        <table name="NewTable" id="2341">
+                            <property name="dataSet">New Gauge</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ID</property>
+                                    <text-property name="displayName">ID</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">VALUE</property>
+                                    <text-property name="displayName">VALUE</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                    <property name="dataType">float</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">MAX</property>
+                                    <text-property name="displayName">MAX</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["MAX"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">COLOR</property>
+                                    <text-property name="displayName">COLOR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COLOR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <list-property name="filter">
+                                <structure>
+                                    <property name="operator">eq</property>
+                                    <expression name="expr" type="javascript">row["ID"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">"MaintenanceCosts"</value>
+                                    </simple-property-list>
+                                    <property name="updateAggregation">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="2364"/>
+                            <footer>
+                                <row id="2342">
+                                    <cell id="2343">
+                                        <grid name="NewGrid" id="2344">
+                                            <property name="backgroundColor">white</property>
+                                            <property name="borderBottomColor">#E6E9ED</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#E6E9ED</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#E6E9ED</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#E6E9ED</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="width">100%</property>
+                                            <expression name="bookmark" type="javascript">"MaintenanceCosts"</expression>
+                                            <column id="2345">
+                                                <property name="width">125px</property>
+                                            </column>
+                                            <column id="2346">
+                                                <property name="width">185px</property>
+                                            </column>
+                                            <row id="2347">
+                                                <cell id="2348">
+                                                    <property name="colSpan">2</property>
+                                                    <property name="rowSpan">1</property>
+                                                    <property name="borderBottomColor">#ACB8C4</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <label name="NewLabel18" id="2349">
+                                                        <property name="fontSize">14pt</property>
+                                                        <property name="paddingTop">5pt</property>
+                                                        <property name="paddingLeft">3pt</property>
+                                                        <property name="paddingBottom">5pt</property>
+                                                        <text-property name="text" key="Maintenance Costs">Maintenance Costs</text-property>
+                                                    </label>
+                                                </cell>
+                                            </row>
+                                            <row id="2350">
+                                                <cell id="2351">
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <extended-item extensionName="HTMLControl" name="NewCustom Visualization" id="2352">
+                                                        <method name="clientOnCreate"><![CDATA[var config = {
+ 	idColumn : "ID",
+	valueColumn : "VALUE",
+	valueMaxColumn : "MAX",
+	colorColumn : "COLOR"
+};
+
+// set precision here
+// if none, default value
+var nbDec = 1;
+
+// Read data set 
+var cursor = this.getDataCursor();
+var rowId = [];
+var rowValue = [];
+var rowMax = [];
+var rowColor = [];
+
+while (cursor.hasNext()) {
+	var rowData = cursor.next();
+	rowId.push(rowData[config.idColumn]);
+	rowValue.push(rowData[config.valueColumn]);
+	rowMax.push(rowData[config.valueMaxColumn]);
+	rowColor.push(rowData[config.colorColumn]);
+};
+
+var customViz = this;
+	
+var myGauge = function() {
+	var containerId = customViz.getId();
+	myDiv = '<div style="position:relative">';
+	myDiv += '<canvas id="' + rowId[0] + '" class="canvas_gauge" style="width:200px;height:100px;position:absolute;left:-50px"></canvas>';
+	myDiv += '<span id="' + rowId[0] + '-lib" style="width:200px;position:absolute;left:-50px;text-align:center;top:25px;font-size:40px"></span>';
+	myDiv += '</div>';
+	$('#' + containerId).append(myDiv);
+		
+	var opts = {
+  		lines: 1, // The number of lines to draw
+  		angle: 0.2, // The length of each line
+  		lineWidth: 0.1, // The line thickness
+  		pointer: {
+    		length: 0.9, // The radius of the inner circle
+    		strokeWidth: 0.035, // The rotation offset
+		},
+  		limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+  		colorStop: rowColor[0],
+  		strokeColor: '#F0F3F3',   // to see which ones work best for you
+  		generateGradient: true,
+	};
+
+	var CustomTextRenderer = function(el){
+    	this.el = el;
+    	this.render = function(gauge){
+        	this.el.innerHTML = gauge.displayedValue.toFixed(nbDec);
+    	}
+	}
+	CustomTextRenderer.prototype = new TextRenderer();
+
+	var target = document.getElementById(rowId[0]); // your canvas element
+	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+	gauge.maxValue = rowMax[0],
+	gauge.animationSpeed = 15; // set animation speed (32 is default value)
+	gauge.set(rowValue[0]); // set actual value
+	gauge.setTextField(new CustomTextRenderer(document.getElementById(rowId[0] + "-lib")));
+
+}
+
+head.load(this.getBirtResourceURL('/Applications/IoT Demo/js/gauge.js'), myGauge);
+]]></method>
+                                                        <property name="height">100px</property>
+                                                        <property name="width">100%</property>
+                                                    </extended-item>
+                                                </cell>
+                                                <cell id="2353">
+                                                    <grid name="NewGrid1" id="2365">
+                                                        <property name="height">100px</property>
+                                                        <column id="1930"/>
+                                                        <row id="1931">
+                                                            <property name="verticalAlign">middle</property>
+                                                            <cell id="1932">
+                                                                <label name="NewLabel19" id="1928">
+                                                                    <property name="fontSize">14pt</property>
+                                                                    <property name="paddingTop">5pt</property>
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="paddingBottom">5pt</property>
+                                                                    <text-property name="text">x1000 CAD</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                        <row id="1933">
+                                                            <property name="verticalAlign">bottom</property>
+                                                            <property name="height">10%</property>
+                                                            <cell id="1934">
+                                                                <image name="NewImage" id="369">
+                                                                    <property name="display">inline</property>
+                                                                    <property name="height">0.08403361344537816in</property>
+                                                                    <property name="width">0.1092436974789916in</property>
+                                                                    <property name="source">file</property>
+                                                                    <expression name="uri" type="constant">images/arrow down green.png</expression>
+                                                                </image>
+                                                                <text name="NewText4" id="72">
+                                                                    <property name="style">kpi_green</property>
+                                                                    <property name="display">inline</property>
+                                                                    <property name="contentType">html</property>
+                                                                    <text-property name="content"><![CDATA[ 4 %]]></text-property>
+                                                                </text>
+                                                                <label name="NewLabel20" id="73">
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="display">inline</property>
+                                                                    <text-property name="text" key="Decrease vs last year">Decrease vs last year</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                    </grid>
+                                                </cell>
+                                            </row>
+                                        </grid>
+                                    </cell>
+                                </row>
+                            </footer>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <table name="MaintenanceRequired" id="2166">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Make</property>
+                    <text-property name="displayName">Make</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Make"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MakeCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNTDISTINCT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Make"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="linkedDataModel">Data Model</property>
+            <property name="isSummaryTable">true</property>
+            <column id="2193"/>
+            <footer>
+                <row id="2167">
+                    <cell id="2168">
+                        <table name="NewTable2" id="1905">
+                            <property name="dataSet">New Gauge</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ID</property>
+                                    <text-property name="displayName">ID</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">VALUE</property>
+                                    <text-property name="displayName">VALUE</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                    <property name="dataType">float</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">MAX</property>
+                                    <text-property name="displayName">MAX</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["MAX"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">COLOR</property>
+                                    <text-property name="displayName">COLOR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COLOR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <list-property name="filter">
+                                <structure>
+                                    <property name="operator">eq</property>
+                                    <expression name="expr" type="javascript">row["ID"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">"MaintenanceRequired"</value>
+                                    </simple-property-list>
+                                    <property name="updateAggregation">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="1929"/>
+                            <footer>
+                                <row id="2068">
+                                    <cell id="2069">
+                                        <grid name="NewGrid4" id="1919">
+                                            <property name="backgroundColor">white</property>
+                                            <property name="borderBottomColor">#E6E9ED</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#E6E9ED</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#E6E9ED</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#E6E9ED</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="width">100%</property>
+                                            <expression name="bookmark" type="javascript">"MaintenanceCosts"</expression>
+                                            <column id="1920">
+                                                <property name="width">125px</property>
+                                            </column>
+                                            <column id="1921">
+                                                <property name="width">185px</property>
+                                            </column>
+                                            <row id="1922">
+                                                <cell id="1923">
+                                                    <property name="colSpan">2</property>
+                                                    <property name="rowSpan">1</property>
+                                                    <property name="borderBottomColor">#ACB8C4</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <label name="NewLabel24" id="1935">
+                                                        <property name="fontSize">14pt</property>
+                                                        <property name="paddingTop">5pt</property>
+                                                        <property name="paddingLeft">3pt</property>
+                                                        <property name="paddingBottom">5pt</property>
+                                                        <text-property name="text" key="Maintenance Costs">Maintenance Required Percentage</text-property>
+                                                    </label>
+                                                </cell>
+                                            </row>
+                                            <row id="1925">
+                                                <cell id="1926">
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <extended-item extensionName="HTMLControl" name="NewCustom Visualization2" id="1913">
+                                                        <method name="clientOnCreate"><![CDATA[var config = {
+ 	idColumn : "ID",
+	valueColumn : "VALUE",
+	valueMaxColumn : "MAX",
+	colorColumn : "COLOR"
+};
+
+// set precision here
+// if none, default value
+var nbDec = 1;
+
+// Read data set 
+var cursor = this.getDataCursor();
+var rowId = [];
+var rowValue = [];
+var rowMax = [];
+var rowColor = [];
+
+while (cursor.hasNext()) {
+	var rowData = cursor.next();
+	rowId.push(rowData[config.idColumn]);
+	rowValue.push(rowData[config.valueColumn]);
+	rowMax.push(rowData[config.valueMaxColumn]);
+	rowColor.push(rowData[config.colorColumn]);
+};
+
+var customViz = this;
+	
+var myGauge = function() {
+	var containerId = customViz.getId();
+	myDiv = '<div style="position:relative">';
+	myDiv += '<canvas id="' + rowId[0] + '" class="canvas_gauge" style="width:200px;height:100px;position:absolute;left:-50px"></canvas>';
+	myDiv += '<span id="' + rowId[0] + '-lib" style="width:200px;position:absolute;left:-50px;text-align:center;top:25px;font-size:40px"></span>';
+	myDiv += '</div>';
+	$('#' + containerId).append(myDiv);
+		
+	var opts = {
+  		lines: 1, // The number of lines to draw
+  		angle: 0.2, // The length of each line
+  		lineWidth: 0.1, // The line thickness
+  		pointer: {
+    		length: 0.9, // The radius of the inner circle
+    		strokeWidth: 0.035, // The rotation offset
+		},
+  		limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+  		colorStop: rowColor[0],
+  		strokeColor: '#F0F3F3',   // to see which ones work best for you
+  		generateGradient: true,
+	};
+
+	var CustomTextRenderer = function(el){
+    	this.el = el;
+    	this.render = function(gauge){
+        	this.el.innerHTML = gauge.displayedValue.toFixed(nbDec);
+    	}
+	}
+	CustomTextRenderer.prototype = new TextRenderer();
+
+	var target = document.getElementById(rowId[0]); // your canvas element
+	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+	gauge.maxValue = rowMax[0],
+	gauge.animationSpeed = 15; // set animation speed (32 is default value)
+	gauge.set(rowValue[0]); // set actual value
+	gauge.setTextField(new CustomTextRenderer(document.getElementById(rowId[0] + "-lib")));
+
+}
+
+head.load(this.getBirtResourceURL('/Applications/IoT Demo/js/gauge.js'), myGauge);
+]]></method>
+                                                        <property name="height">100px</property>
+                                                        <property name="width">100%</property>
+                                                    </extended-item>
+                                                </cell>
+                                                <cell id="1927">
+                                                    <grid name="NewGrid5" id="2058">
+                                                        <property name="height">100px</property>
+                                                        <column id="2059"/>
+                                                        <row id="2060">
+                                                            <property name="verticalAlign">middle</property>
+                                                            <cell id="2061">
+                                                                <label name="NewLabel25" id="2062">
+                                                                    <property name="fontSize">14pt</property>
+                                                                    <property name="paddingTop">5pt</property>
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="paddingBottom">5pt</property>
+                                                                    <text-property name="text">Goal below 5%</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                        <row id="2063">
+                                                            <property name="verticalAlign">bottom</property>
+                                                            <property name="height">10%</property>
+                                                            <cell id="2064">
+                                                                <image name="NewImage2" id="2065">
+                                                                    <property name="display">inline</property>
+                                                                    <property name="height">12px</property>
+                                                                    <property name="width">15px</property>
+                                                                    <property name="source">file</property>
+                                                                    <expression name="uri" type="constant">images/arrow up red.png</expression>
+                                                                </image>
+                                                                <text name="NewText6" id="2066">
+                                                                    <property name="style">kpi_green</property>
+                                                                    <property name="color">#E74C3C</property>
+                                                                    <property name="display">inline</property>
+                                                                    <property name="contentType">html</property>
+                                                                    <text-property name="content"><![CDATA[ 2 %]]></text-property>
+                                                                </text>
+                                                                <label name="NewLabel26" id="2067">
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="display">inline</property>
+                                                                    <text-property name="text" key="Decrease vs last year">Increase vs last year</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                    </grid>
+                                                </cell>
+                                            </row>
+                                        </grid>
+                                    </cell>
+                                </row>
+                            </footer>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <table name="SpeedAlerts" id="2090">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Make</property>
+                    <text-property name="displayName">Make</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Make"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MakeCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNTDISTINCT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Make"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="linkedDataModel">Data Model</property>
+            <property name="isSummaryTable">true</property>
+            <column id="2117"/>
+            <footer>
+                <row id="2091">
+                    <cell id="2092">
+                        <table name="NewTable1" id="2093">
+                            <property name="dataSet">New Gauge</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ID</property>
+                                    <text-property name="displayName">ID</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">VALUE</property>
+                                    <text-property name="displayName">VALUE</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                    <property name="dataType">float</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">MAX</property>
+                                    <text-property name="displayName">MAX</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["MAX"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">COLOR</property>
+                                    <text-property name="displayName">COLOR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COLOR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <list-property name="filter">
+                                <structure>
+                                    <property name="operator">eq</property>
+                                    <expression name="expr" type="javascript">row["ID"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">"SpeedAlerts"</value>
+                                    </simple-property-list>
+                                    <property name="updateAggregation">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="2116"/>
+                            <footer>
+                                <row id="2094">
+                                    <cell id="2095">
+                                        <grid name="NewGrid2" id="1980">
+                                            <property name="backgroundColor">white</property>
+                                            <property name="borderBottomColor">#E6E9ED</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#E6E9ED</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#E6E9ED</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#E6E9ED</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="width">100%</property>
+                                            <expression name="bookmark" type="javascript">"SpeedAlerts"</expression>
+                                            <column id="1981">
+                                                <property name="width">125px</property>
+                                            </column>
+                                            <column id="1982">
+                                                <property name="width">185px</property>
+                                            </column>
+                                            <row id="1983">
+                                                <cell id="1984">
+                                                    <property name="colSpan">2</property>
+                                                    <property name="rowSpan">1</property>
+                                                    <property name="borderBottomColor">#ACB8C4</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <label name="NewLabel21" id="1985">
+                                                        <property name="fontSize">14pt</property>
+                                                        <property name="paddingTop">5pt</property>
+                                                        <property name="paddingLeft">3pt</property>
+                                                        <property name="paddingBottom">5pt</property>
+                                                        <text-property name="text" key="Speed Alerts">Speed Alerts</text-property>
+                                                    </label>
+                                                </cell>
+                                            </row>
+                                            <row id="1986">
+                                                <cell id="1987">
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <extended-item extensionName="HTMLControl" name="NewCustom Visualization1" id="2250">
+                                                        <method name="clientOnCreate"><![CDATA[var config = {
+ 	idColumn : "ID",
+	valueColumn : "VALUE",
+	valueMaxColumn : "MAX",
+	colorColumn : "COLOR"
+};
+
+// set precision here
+// if none, default value
+var nbDec = 0;
+
+// Read data set 
+var cursor = this.getDataCursor();
+var rowId = [];
+var rowValue = [];
+var rowMax = [];
+var rowColor = [];
+
+while (cursor.hasNext()) {
+	var rowData = cursor.next();
+	rowId.push(rowData[config.idColumn]);
+	rowValue.push(rowData[config.valueColumn]);
+	rowMax.push(rowData[config.valueMaxColumn]);
+	rowColor.push(rowData[config.colorColumn]);
+};
+
+var customViz = this;
+	
+var myGauge = function() {
+	debugger;
+	var containerId = customViz.getId();
+	myDiv = '<div style="position:relative">';
+	myDiv += '<canvas id="' + rowId[0] + '" class="canvas_gauge" style="width:200px;height:100px;position:absolute;left:-50px"></canvas>';
+	myDiv += '<span id="' + rowId[0] + '-lib" style="width:200px;position:absolute;left:-50px;text-align:center;top:25px;font-size:40px"></span>';
+	myDiv += '</div>';
+	$('#' + containerId).append(myDiv);
+		
+	var opts = {
+  		lines: 1, // The number of lines to draw
+  		angle: 0.2, // The length of each line
+  		lineWidth: 0.1, // The line thickness
+  		pointer: {
+    		length: 0.9, // The radius of the inner circle
+    		strokeWidth: 0.035, // The rotation offset
+		},
+  		limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+  		colorStop: rowColor[0],
+  		strokeColor: '#F0F3F3',   // to see which ones work best for you
+  		generateGradient: true,
+	};
+
+	var CustomTextRenderer = function(el){
+    	this.el = el;
+    	this.render = function(gauge){
+    		debugger;
+        	this.el.innerHTML = gauge.displayedValue.toFixed(nbDec);
+    	}
+	}
+	CustomTextRenderer.prototype = new TextRenderer();
+
+	var target = document.getElementById(rowId[0]); // your canvas element
+	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+	gauge.maxValue = rowMax[0],
+	gauge.animationSpeed = 15; // set animation speed (32 is default value)
+	gauge.set(rowValue[0]); // set actual value
+	gauge.setTextField(new CustomTextRenderer(document.getElementById(rowId[0] + "-lib")));
+
+}
+
+head.load(this.getBirtResourceURL('/Applications/IoT Demo/js/gauge.js'), myGauge);
+]]></method>
+                                                        <property name="height">100px</property>
+                                                        <property name="width">100%</property>
+                                                    </extended-item>
+                                                </cell>
+                                                <cell id="1989">
+                                                    <grid name="NewGrid3" id="1990">
+                                                        <property name="height">100px</property>
+                                                        <column id="1991"/>
+                                                        <row id="1992">
+                                                            <property name="verticalAlign">middle</property>
+                                                            <cell id="1993">
+                                                                <label name="NewLabel22" id="1994">
+                                                                    <property name="fontSize">14pt</property>
+                                                                    <property name="paddingTop">5pt</property>
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="paddingBottom">5pt</property>
+                                                                    <text-property name="text" key="Goal: below 4 alerts">Goal: below 4 alerts</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                        <row id="1995">
+                                                            <property name="verticalAlign">bottom</property>
+                                                            <property name="height">10%</property>
+                                                            <cell id="1996">
+                                                                <image name="NewImage1" id="1997">
+                                                                    <property name="display">inline</property>
+                                                                    <property name="height">0.08403361344537816in</property>
+                                                                    <property name="width">0.1092436974789916in</property>
+                                                                    <property name="source">file</property>
+                                                                    <expression name="uri" type="constant">images/arrow down green.png</expression>
+                                                                </image>
+                                                                <text name="NewText5" id="1998">
+                                                                    <property name="style">kpi_green</property>
+                                                                    <property name="display">inline</property>
+                                                                    <property name="contentType">html</property>
+                                                                    <text-property name="content"><![CDATA[ 2 %]]></text-property>
+                                                                </text>
+                                                                <label name="NewLabel23" id="1999">
+                                                                    <property name="paddingLeft">3pt</property>
+                                                                    <property name="display">inline</property>
+                                                                    <text-property name="text" key="Decrease vs last year">Decrease vs last year</text-property>
+                                                                </label>
+                                                            </cell>
+                                                        </row>
+                                                    </grid>
+                                                </cell>
+                                            </row>
+                                        </grid>
+                                    </cell>
+                                </row>
+                            </footer>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="dashboardView">
+        <dashboard id="2">
+            <property name="activeTab">180a3b33-87c3-4efd-af27-ac689d7b111c</property>
+            <property name="tabs">
+                <tab-element name="180a3b33-87c3-4efd-af27-ac689d7b111c" id="3">
+                    <property name="title">Fleet Maintenance</property>
+                    <property name="sections">
+                        <section id="4">
+                            <property name="width">77.50677506775068%</property>
+                            <property name="gadgets">
+                                <gadget name="Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed" id="2422">
+                                    <property name="title">SpeedAlerts - Components.rptlibrary</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">8</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="caption">
+                                        <gadget-caption id="2423">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="2424">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">reportlibrary</property>
+                                                    <property name="type">string</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="reportlibrary">{"reportLibrary":"/Applications/IoT Demo/Report Libraries/Components.rptlibrary","reportItem":"SpeedAlerts"}</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">SpeedAlerts</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5" id="2419">
+                                    <property name="title">MaintenanceRequired - Components.rptlibrary</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">7</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">156px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="2420">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="2421">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">reportlibrary</property>
+                                                    <property name="type">string</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="reportlibrary">{"reportLibrary":"/Applications/IoT Demo/Report Libraries/Components.rptlibrary","reportItem":"MaintenanceRequired"}</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">MaintenanceRequired</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7" id="2416">
+                                    <property name="title">MaintenanceCosts - Components.rptlibrary</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">6</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">158px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="2417">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="2418">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">reportlibrary</property>
+                                                    <property name="type">string</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="reportlibrary">{"reportLibrary":"/Applications/IoT Demo/Report Libraries/Components.rptlibrary","reportItem":"MaintenanceCosts"}</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">MaintenanceCosts</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145" id="2411">
+                                    <property name="title">AverageOil - Components.rptlibrary</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">5</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">151px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="2412">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="2415">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">reportlibrary</property>
+                                                    <property name="type">string</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="reportlibrary">{"reportLibrary":"/Applications/IoT Demo/Report Libraries/Components.rptlibrary","reportItem":"AverageOil"}</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">AverageOil</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_a6afe73d-075d-40af-9943-9d9e448b90da</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_a6afe73d-075d-40af-9943-9d9e448b90da" id="2408">
+                                    <property name="title">AverageMPG - Components.rptlibrary</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">4</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">156px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="2409">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="2410">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">reportlibrary</property>
+                                                    <property name="type">string</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="reportlibrary">{"reportLibrary":"/Applications/IoT Demo/Report Libraries/Components.rptlibrary","reportItem":"AverageMPG"}</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">AverageMPG</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_48a7a5a9-f2e4-4d3a-b361-adc8f833e145</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_ab585a08-9af6-425d-b1a0-cac6276765a7</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_6cc4d25b-a713-4d1a-8f21-8ffd6e0cb5e5</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">Gadget_b5a1212b-9f3c-4589-a6f8-1b64ff834aed</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="f7d977a8-310c-4541-8aae-8cccb96c6fa8" id="6">
+                                    <property name="zIndex">1</property>
+                                    <property name="isVisible">false</property>
+                                    <property name="height">150px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="8">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"tahoma", "arial", "verdana", sans-serif</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="color">#000000</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <current-selections id="7"/>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_2ebb0d51-9543-42e2-909c-0a28f09565ff</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                            </property>
+                        </section>
+                        <section id="5">
+                            <property name="width">11.219512195121952%</property>
+                            <property name="gadgets">
+                                <gadget name="Gadget_2ebb0d51-9543-42e2-909c-0a28f09565ff" id="32">
+                                    <property name="title">Make</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">3</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">167px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="33">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <list-data-selector id="34">
+                                            <property name="linkedDataModel">NewDataMartDataSource::Data Model</property>
+                                            <simple-property-list name="columnNames">
+                                                <value>Make</value>
+                                                <value>Make</value>
+                                            </simple-property-list>
+                                            <property name="allowMultiValue">true</property>
+                                            <property name="enableSearch">false</property>
+                                            <property name="listLimit">1000</property>
+                                        </list-data-selector>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">f7d977a8-310c-4541-8aae-8cccb96c6fa8</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_parameter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="appliedTo">Make</property>
+                                                    <property name="gadget">Gadget_4c9eebf0-e346-4a77-a6e4-36e410a51b32</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                            </property>
+                        </section>
+                        <section id="15">
+                            <property name="width">11.27371273712737%</property>
+                        </section>
+                    </property>
+                </tab-element>
+            </property>
+        </dashboard>
+    </property>
+</report>

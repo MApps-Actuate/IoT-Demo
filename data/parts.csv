@@ -1,0 +1,66 @@
+ID,Part,Manufacturer
+1,Brake Pad,GNK
+2,Brake Pad,Mismo
+3,Brake Pad,Lembo
+4,Brake Pad,WTR
+5,Brake Pad,Rosh
+6,Brake Rotor,Cagner
+7,Brake Rotor,GNK
+8,Brake Rotor,Top Tech
+9,Brake Rotor,Mismo
+10,Brake Rotor,Kebo
+11,Brake Caliper,Kebo
+12,Brake Caliper,WTR
+13,Brake Caliper,Rosh
+14,Brake Caliper,Mismo
+15,Brake Caliper,Cagner
+16,Alternator,Cagner
+17,Alternator,Nawk
+18,Alternator,Kebo
+19,Alternator,Top Tech
+20,Alternator,Lend
+21,Battery,Lembo
+22,Battery,Cagner
+23,Battery,Jonda
+24,Battery,WTR
+25,Battery,Top Tech
+26,Water Pump,Cagner
+27,Water Pump,Nawk
+28,Water Pump,Jonda
+29,Water Pump,LBC
+30,Water Pump,Lend
+31,Thermostat,WTR
+32,Thermostat,Mismo
+33,Thermostat,Jonda
+34,Thermostat,Cagner
+35,Thermostat,Nawk
+36,Air Conditioner Compressor,Rosh
+37,Air Conditioner Compressor,Cagner
+38,Air Conditioner Compressor,Lend
+39,Air Conditioner Compressor,Jonda
+40,Air Conditioner Compressor,Kebo
+41,Air Conditioner Coolant,Mismo
+42,Air Conditioner Coolant,Top Tech
+43,Air Conditioner Coolant,Kebo
+44,Air Conditioner Coolant,Rosh
+45,Air Conditioner Coolant,Cagner
+46,Ignition Coils,TEL
+47,Ignition Coils,WTR
+48,Ignition Coils,Lembo
+49,Ignition Coils,Top Tech
+50,Ignition Coils,Cagner
+51,Fuel Injectors,Top Tech
+52,Fuel Injectors,Lend
+53,Fuel Injectors,Jonda
+54,Fuel Injectors,WTR
+55,Fuel Injectors,Rosh
+56,Mass Air Flow Sensor,Rosh
+57,Mass Air Flow Sensor,Jonda
+58,Mass Air Flow Sensor,Lend
+59,Mass Air Flow Sensor,Nawk
+60,Mass Air Flow Sensor,Kebo
+61,Catalytic Converter,Top Tech
+62,Catalytic Converter,Kebo
+63,Catalytic Converter,Mismo
+64,Catalytic Converter,Lembo
+65,Catalytic Converter,Jero
